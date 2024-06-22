@@ -21,3 +21,5 @@ app.listen(process.env.PORT, () => {
 });
 
 app.use(ErrorMiddleware);
+
+export default app;
