@@ -4,13 +4,23 @@ import bcrypt from "bcryptjs";
 import jwtToken from "../utils/jwt.js";
 
 export const registerUser = async (req, res, next) => {
-  const { name, password, email } = req.body;
+  let { name, password, email, profile_image } = req.body;
+
+  if (profile_image === "") {
+    profile_image =
+      "https://res.cloudinary.com/dyxijouqy/image/upload/f_auto,q_auto/v1/blog_profile/dfanyr2nh3h4pwbkecmp";
+  }
   try {
     const isUser = await userModel.findOne({ email });
     if (isUser)
       return next(new ErrorHandler(401, "Email already registered with us."));
     const hashPassword = await bcrypt.hash(password, 10);
-    const user = await userModel({ name, password: hashPassword, email });
+    const user = await userModel({
+      name,
+      password: hashPassword,
+      email,
+      profile_image,
+    });
     await user.save();
     jwtToken(res, user, "successfully register");
   } catch (error) {
