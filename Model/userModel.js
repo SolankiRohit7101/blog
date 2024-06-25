@@ -19,6 +19,10 @@ const userSchema = new Schema(
       type: [Schema.Types.ObjectId],
       ref: "Blog",
     },
+    profile_image: {
+      type: String,
+      default:
+    },
   },
   { timestamps: true }
 );
