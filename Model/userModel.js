@@ -21,8 +21,6 @@ const userSchema = new Schema(
     },
     profile_image: {
       type: String,
-      default:
-        "https://res.cloudinary.com/dyxijouqy/image/upload/f_auto,q_auto/v1/blog_profile/dfanyr2nh3h4pwbkecmp",
     },
   },
   { timestamps: true }
