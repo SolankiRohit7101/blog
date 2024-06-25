@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 const db = async () => {
   await mongoose
-    .connect(process.env.MONGO_DB)
+    .connect(process.env.MONGO_DB )
     .then(({ connection }) => console.log(connection.host))
     .catch((err) => console.log(err));
 };

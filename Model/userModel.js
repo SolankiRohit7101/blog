@@ -22,7 +22,7 @@ const userSchema = new Schema(
     profile_image: {
       type: String,
       default:
-        "http://res.cloudinary.com/dyxijouqy/image/upload/v1719292422/blog_profile/inqgqupaqjjh2q5hzpxi.png",
+        "https://res.cloudinary.com/dyxijouqy/image/upload/f_auto,q_auto/v1/blog_profile/dfanyr2nh3h4pwbkecmp",
     },
   },
   { timestamps: true }
