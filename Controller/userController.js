@@ -6,7 +6,7 @@ import jwtToken from "../utils/jwt.js";
 export const registerUser = async (req, res, next) => {
   let { name, password, email, profile_image } = req.body;
 
-  if (!profile_image || profile_image.length < 1) {
+  if (!profile_image) {
     profile_image =
       "https://res.cloudinary.com/dyxijouqy/image/upload/f_auto,q_auto/v1/blog_profile/dfanyr2nh3h4pwbkecmp";
   }
