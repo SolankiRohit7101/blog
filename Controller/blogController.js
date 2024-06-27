@@ -5,12 +5,16 @@ import { Types } from "mongoose";
 
 export const addBlog = async (req, res, next) => {
   const user = req.user;
-  const { title, description } = req.body;
+  let { title, description, thumbnailUrl } = req.body;
+  if (!thumbnailUrl || thumbnailUrl.length < 1) {
+    thumbnailUrl = "";
+  }
   try {
     const newBlog = await blogModel.create({
       title,
       description,
       author: user,
+      thumbnailUrl,
     });
     await newBlog.save();
     const userBlog = await userModel

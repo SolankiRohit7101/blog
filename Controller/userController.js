@@ -10,12 +10,11 @@ export const registerUser = async (req, res, next) => {
     profile_image =
       "https://res.cloudinary.com/dyxijouqy/image/upload/f_auto,q_auto/v1/blog_profile/dfanyr2nh3h4pwbkecmp";
   }
-
   try {
     const isUser = await userModel.findOne({ email });
     if (isUser)
       return next(new ErrorHandler(401, "Email already registered with us."));
-    const hashPassword = await bcrypt.hash(password, 10);
+    const hashPassword = await bcrypt.hashSync(password, 8);
     const user = await userModel({
       name,
       password: hashPassword,

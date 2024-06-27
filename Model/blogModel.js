@@ -24,6 +24,9 @@ const blogSchema = new Schema(
       type: String,
       require: true,
     },
+    thumbnailUrl: {
+      type: String,
+    },
     likes: {
       numOfLike: {
         type: Number,
