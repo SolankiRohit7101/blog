@@ -12,8 +12,12 @@ db();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(cors());
-// app.use("*", (req, res, next) => res.send("<h1 >Page Not Found 404</h1>"));
+app.use(
+  cors({
+    origin: "http://localhost:5173/",
+  })
+);
+app.use("*", (req, res, next) => res.send("<h1 >Page Not Found 404</h1>"));
 app.use("/api/user", userRouter);
 app.use("/api/blog", blogRouter);
 app.listen(process.env.PORT, () => {

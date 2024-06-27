@@ -7,7 +7,8 @@ export const addBlog = async (req, res, next) => {
   const user = req.user;
   let { title, description, thumbnailUrl } = req.body;
   if (!thumbnailUrl || thumbnailUrl.length < 1) {
-    thumbnailUrl = "";
+    thumbnailUrl =
+      "http://res.cloudinary.com/dyxijouqy/image/upload/v1719483993/blog_profile/kzndcnx6hpgah7zbxgyl.jpg";
   }
   try {
     const newBlog = await blogModel.create({
