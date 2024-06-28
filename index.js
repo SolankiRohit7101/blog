@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:5173/",
+    origin: "http://localhost:5173",
   })
 );
 app.use("*", (req, res, next) => res.send("<h1 >Page Not Found 404</h1>"));
