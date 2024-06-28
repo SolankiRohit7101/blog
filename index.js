@@ -12,14 +12,21 @@ db();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
+
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "http://localhost:5173", // Ensure correct origin without trailing slash
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
+    credentials: true,
     allowedHeaders:
       "Origin, X-Requested-With, Content-Type, Accept, Authorization",
-    optionsSuccessStatus: 200,
+    optionsSuccessStatus: 200, // Some legacy browsers choke on 204
   })
 );
+
+// Ensure OPTIONS requests are handled before other routes
+app.options("*", cors());
+
 app.use("*", (req, res, next) => res.send("<h1 >Page Not Found 404</h1>"));
 app.use("/api/user", userRouter);
 app.use("/api/blog", blogRouter);
