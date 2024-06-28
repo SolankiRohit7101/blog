@@ -7,7 +7,7 @@ const jwtToken = (res, user, message) => {
     { email, name, _id, profile_image },
     process.env.JWT_SECRET,
     {
-      expiresIn: 24 * 60 * 60 * 1000,
+      expiresIn: "1d",
     }
   );
 
@@ -17,7 +17,8 @@ const jwtToken = (res, user, message) => {
     .cookie("accessToken", accessToken, {
       httpOnly: true,
       secure: false,
-      maxAge: Date.now() + 24 * 60 * 60 * 1000,
+      maxAge: 24 * 60 * 60 * 1000,
+      sameSite: 'lax',
     })
     .json({ success: true, message, decode })
     .status(200);
