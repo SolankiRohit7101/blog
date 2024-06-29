@@ -10,15 +10,13 @@ const jwtToken = (res, user, message) => {
       expiresIn: "1d",
     }
   );
-
   const decode = jwt.verify(accessToken, process.env.JWT_SECRET);
-
   return res
     .cookie("accessToken", accessToken, {
       httpOnly: true,
       secure: false,
       maxAge: 24 * 60 * 60 * 1000,
-      sameSite: 'lax',
+      sameSite: "lax",
     })
     .json({ success: true, message, decode })
     .status(200);

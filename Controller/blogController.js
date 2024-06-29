@@ -9,7 +9,7 @@ export const addBlog = async (req, res, next) => {
   if (!thumbnailUrl || thumbnailUrl.length < 1) {
     thumbnailUrl =
       "http://res.cloudinary.com/dyxijouqy/image/upload/v1719483993/blog_profile/kzndcnx6hpgah7zbxgyl.jpg";
-  }
+  }22
   try {
     const newBlog = await blogModel.create({
       title,
@@ -178,6 +178,7 @@ export const getAllBlogs = async (req, res, next) => {
           _id: 1,
           description: 1,
           likes: 1,
+          thumbnailUrl: 1,
           authorDetails: {
             name: 1,
             _id: 1,
