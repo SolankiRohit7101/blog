@@ -1,5 +1,6 @@
-app.use(cookieParser());
 import express from "express";
+const app = express();
+app.use(cookieParser());
 import "dotenv/config";
 import ErrorMiddleware from "./middleware/ErrorMiddleware.js";
 import bodyParser from "body-parser";
@@ -8,7 +9,6 @@ import db from "./utils/MongoDb.js";
 import cors from "cors";
 import blogRouter from "./Routes/BlogRouter.js";
 import userRouter from "./Routes/userRouter.js";
-const app = express();
 db();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
