@@ -192,7 +192,6 @@ export const getAllBlogs = async (req, res, next) => {
           "Resource Not Found or No Resourse has been added"
         )
       );
-    console.log(allBlogs);
     return res.json({
       success: true,
       message: "fetcher successfully",
@@ -329,8 +328,8 @@ export const likesFunctionalityUsingPipeline = async (req, res, next) => {
 export const myBlogs = async (req, res, next) => {
   let userId = req.user;
   userId = new Types.ObjectId(userId);
-
   const myblog = await blogModel.find({ author: userId });
+
   return res.json({
     success: true,
     message: "successfully fetch data",
