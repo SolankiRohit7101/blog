@@ -13,12 +13,12 @@ const jwtToken = (res, user, message) => {
   const decode = jwt.verify(accessToken, process.env.JWT_SECRET);
   return res
     .cookie("accessToken", accessToken, {
-      httpOnly: true, // Cookie is accessible only through HTTP(S) requests, not JavaScript
-      secure: true, // Cookie will only be sent over HTTPS
-      maxAge: 24 * 60 * 60 * 1000, // Cookie expiration time (1 day)
-      sameSite: "None", // Ensures cross-site requests include cookies (requires Secure flag)
-      path: "/", // Cookie is accessible from all paths on the domain
-      domain: "blog-cqt0.onrender.com",
+      httpOnly: true,
+      secure: true,
+      maxAge: 24 * 60 * 60 * 1000,
+      sameSite: "None",
+      path: "/",
+      domain: process.env.MY_URL,
     })
     .json({ success: true, message, decode })
     .status(200);

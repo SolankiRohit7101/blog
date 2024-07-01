@@ -1,10 +1,5 @@
 import express from "express";
 
-const cookietesting = (req, res, next) => {
-  console.log(req.cookies.accessToken);
-  next();
-};
-
 import {
   addBlog,
   deleteBlog,
@@ -16,7 +11,7 @@ import {
 } from "../Controller/blogController.js";
 import auth from "../middleware/Auth.js";
 const blogRouter = express.Router();
-blogRouter.post("/add", cookietesting, auth, addBlog);
+blogRouter.post("/add", auth, addBlog);
 blogRouter.put("/edit/:blogId", auth, editBlog);
 blogRouter.delete("/delete/:blogId", auth, deleteBlog);
 blogRouter.get("/", getAllBlogs);

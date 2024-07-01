@@ -8,8 +8,8 @@ export const addBlog = async (req, res, next) => {
   let { title, description, thumbnailUrl } = req.body;
   if (!thumbnailUrl || thumbnailUrl.length < 1) {
     thumbnailUrl =
-      "http://res.cloudinary.com/dyxijouqy/image/upload/v1719483993/blog_profile/kzndcnx6hpgah7zbxgyl.jpg";
-  }22
+      "https://res.cloudinary.com/dyxijouqy/image/upload/v1719483993/blog_profile/kzndcnx6hpgah7zbxgyl.jpg";
+  }
   try {
     const newBlog = await blogModel.create({
       title,
