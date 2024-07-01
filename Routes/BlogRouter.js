@@ -19,7 +19,7 @@ blogRouter.put("/like/:blogId", auth, likesFunctionalityUsingPipeline);
 blogRouter.get("/me/blogs", auth, myBlogs);
 export default blogRouter;
 
-const cookietesting = (res, res, next) => {
+const cookietesting = (req, res, next) => {
   console.log(req.cookies.accessToken);
   next();
 };
