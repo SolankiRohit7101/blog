@@ -18,11 +18,9 @@ const blogSchema = new Schema(
   {
     title: {
       type: String,
-      required: true,
     },
     description: {
       type: String,
-      required: true,
     },
     thumbnailUrl: {
       type: String,
