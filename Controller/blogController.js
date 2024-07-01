@@ -172,6 +172,10 @@ export const getAllBlogs = async (req, res, next) => {
           as: "authorDetails",
         },
       },
+
+      {
+        $unwind: "$authorDetails", // Unwind to destructure the array
+      },
       {
         $project: {
           title: 1,
@@ -179,11 +183,8 @@ export const getAllBlogs = async (req, res, next) => {
           description: 1,
           likes: 1,
           thumbnailUrl: 1,
-          authorDetails: {
-            name: 1,
-            _id: 1,
-            email: 1,
-          },
+          "authorDetails.name": 1,
+          "authorDetails.email": 1,
         },
       },
     ]);
