@@ -4,8 +4,8 @@ const likedBySchema = new Schema(
   {
     userId: {
       type: Schema.Types.ObjectId,
-      ref: "user",
-      required: true,
+      ref: "User",
+      require: true,
     },
     likedAt: {
       type: Date,
@@ -18,11 +18,11 @@ const blogSchema = new Schema(
   {
     title: {
       type: String,
-      require: true,
+      required: true,
     },
     description: {
       type: String,
-      require: true,
+      required: true,
     },
     thumbnailUrl: {
       type: String,
