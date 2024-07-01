@@ -1,3 +1,4 @@
+app.use(cookieParser());
 import express from "express";
 import "dotenv/config";
 import ErrorMiddleware from "./middleware/ErrorMiddleware.js";
@@ -11,7 +12,6 @@ const app = express();
 db();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(cookieParser());
 
 console.log(`Frontend URL: ${process.env.FRONTEND_URL}`);
 app.use(
