@@ -185,8 +185,7 @@ export const getAllBlogs = async (req, res, next) => {
         },
       },
     ]);
-    console.log(allBlogs[0]._id);
-    if (!allBlogs || allBlogs[0]._id)
+    if (!allBlogs || !allBlogs[0]._id)
       return next(
         new ErrorHandler(
           404,
