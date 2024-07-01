@@ -194,6 +194,7 @@ export const getAllBlogs = async (req, res, next) => {
           "Resource Not Found or No Resourse has been added"
         )
       );
+    console.log(allBlogs);
     return res.json({
       success: true,
       message: "fetcher successfully",
