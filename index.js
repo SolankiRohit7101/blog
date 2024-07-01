@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
+console.log(`Frontend URL: ${process.env.FRONTEND_URL}`);
 app.use(
   cors({
     origin: process.env.FRONTEND_URL,
