@@ -1,4 +1,10 @@
 import express from "express";
+
+const cookietesting = (req, res, next) => {
+  console.log(req.cookies.accessToken);
+  next();
+};
+
 import {
   addBlog,
   deleteBlog,
@@ -18,8 +24,3 @@ blogRouter.get("/:blogId", getBlogById);
 blogRouter.put("/like/:blogId", auth, likesFunctionalityUsingPipeline);
 blogRouter.get("/me/blogs", auth, myBlogs);
 export default blogRouter;
-
-const cookietesting = (req, res, next) => {
-  console.log(req.cookies.accessToken);
-  next();
-};
