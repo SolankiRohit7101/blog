@@ -26,7 +26,7 @@ app.use(
 // app.use("*", (req, res, next) => res.send("<h1 >Page Not Found 404</h1>"));
 app.use("/api/user", userRouter);
 app.use("/api/blog", blogRouter);
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 4000, () => {
   console.log(`http://localhost:${process.env.PORT}`);
 });
 

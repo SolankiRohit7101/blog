@@ -14,7 +14,7 @@ const jwtToken = (res, user, message) => {
   return res
     .cookie("accessToken", accessToken, {
       httpOnly: true,
-      secure: false,
+      secure: true,
       maxAge: 24 * 60 * 60 * 1000,
       sameSite: "lax",
     })
